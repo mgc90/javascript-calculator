@@ -1,0 +1,45 @@
+.calculatorBody {
+    width: 90vmin;
+    height: auto;
+    border: 5px solid black;
+    margin: 5vmin auto;
+    display: block;
+}
+
+.buttons {
+    width: 30vmin;
+    border: 2px solid black;
+    font-size: 10vmin;
+    background-color: rgb(178, 178, 184);
+}
+
+#display {
+    border: 5px solid black;
+    font-size: 10vmin;
+    background-color: white;
+    text-align: end;
+}
+
+#equals, #clear {
+    width: 45vmin;
+}
+
+#equals {
+    background-color: rgb(50, 124, 185);
+    color: white;
+    font-weight: 700;
+}
+
+#clear {
+    background-color: red;
+    color: white;
+}
+
+.buttons:hover {
+    background-color: rgb(194, 192, 191);
+}
+
+.buttons:active {
+    background-color: rgb(173, 144, 90); 
+    transform: scale(0.9); 
+}

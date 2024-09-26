@@ -4,8 +4,8 @@ import { useState } from 'react'
 const Component = () => {
     const [ display, setDisplay ] = useState("0");
 
-    const numbers = [["0", "zero"], ["1", "one"], ["2", "two"], ["3", "three"], ["4", "four"], ["5", "five"], ["6", "six"], ["7", "seven"], ["8", "eight"], ["9", "nine"]];
-    const operators = [["-", "subtract"], ["+", "add"], ["*", "multiply"], ["/", "divide"], ["=", "equals"], ["AC", "clear"], [".", "decimal"]];
+    const numbers = [["7", "seven"], ["8", "eight"], ["9", "nine"], ["4", "four"], ["5", "five"], ["6", "six"], ["1", "one"], ["2", "two"], ["3", "three"], ["0", "zero"]];
+    const operators = [[".", "decimal"], ["/", "divide"], ["-", "subtract"], ["+", "add"], ["*", "multiply"], ["AC", "clear"], ["=", "equals"]];
     const lastNumber = display.split(/[+\-*/]/).pop();
 
     const addCharacter = (e) => {
@@ -19,8 +19,8 @@ const Component = () => {
             }
         } else if ((e.target.value.match(/[+*/]/)) && display.slice(-1).match((/[+*/]/))) {
             setDisplay(display.slice(0, -1) + e.target.value);
-         } else if (e.target.value.match(/[-+]/) && display.slice(-1).match(/[-+]/)) {
-            setDisplay(display.slice(0, -1) + e.target.value);
+         } else if (e.target.value.match(/[-+]/) && display.slice(-1).match(/[-]/) && display.slice(-2).match(/[*/]/)) {
+            setDisplay(display.slice(0, -2) + e.target.value);
          } else {
             setDisplay(display + e.target.value);
         };
@@ -46,10 +46,8 @@ const Component = () => {
         <div id='display'>
             {display}
         </div>
-        <div className='numbers'>
+        <div className='allButtons'>
             {buttonSpread(numbers)}
-        </div>
-        <div className='operators'>
             {buttonSpread(operators)}
         </div>
     </div>
